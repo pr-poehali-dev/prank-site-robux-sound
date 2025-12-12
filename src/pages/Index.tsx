@@ -30,6 +30,9 @@ const Index = () => {
     const audio = new Audio('https://www.myinstants.com/media/sounds/joker-laugh.mp3');
     audio.volume = 0.6;
     audio.play();
+    setTimeout(() => {
+      window.location.href = 'https://yandex.ru/video/touch/preview/17007166476341901002';
+    }, 1000);
   };
 
   return (
