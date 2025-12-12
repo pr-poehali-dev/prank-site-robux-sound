@@ -99,7 +99,7 @@ const Index = () => {
         </div>
 
         {/* Withdraw button */}
-        {robux >= 10000 && (
+        {clicks >= 10000 && (
           <div className="mt-8 animate-in fade-in zoom-in duration-500">
             <Button
               onClick={handleWithdraw}
@@ -113,10 +113,10 @@ const Index = () => {
           </div>
         )}
 
-        {robux < 10000 && robux > 0 && (
+        {clicks < 10000 && clicks > 0 && (
           <div className="mt-8 animate-in fade-in duration-300">
             <p className="text-lg text-muted-foreground text-center">
-              Ещё {(10000 - robux).toLocaleString()} R$ до вывода! 🎯
+              Ещё {(10000 - clicks).toLocaleString()} кликов до вывода! 🎯
             </p>
           </div>
         )}
