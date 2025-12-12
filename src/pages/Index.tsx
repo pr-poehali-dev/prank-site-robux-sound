@@ -1,9 +1,20 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 
 const Index = () => {
   const [clicks, setClicks] = useState(0);
+  const [coins, setCoins] = useState<Array<{ id: number; left: string; duration: number; delay: number }>>([]);
+
+  useEffect(() => {
+    const coinElements = Array.from({ length: 15 }, (_, i) => ({
+      id: i,
+      left: `${Math.random() * 100}%`,
+      duration: 8 + Math.random() * 7,
+      delay: Math.random() * 5
+    }));
+    setCoins(coinElements);
+  }, []);
 
   const handleClick = () => {
     const audio = new Audio('https://www.myinstants.com/media/sounds/roblox-death-sound.mp3');
@@ -25,6 +36,21 @@ const Index = () => {
         <div className="absolute top-20 left-10 w-32 h-32 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-48 h-48 bg-secondary/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
         <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        
+        {/* Falling coins */}
+        {coins.map((coin) => (
+          <div
+            key={coin.id}
+            className="falling-coin text-4xl"
+            style={{
+              left: coin.left,
+              animationDuration: `${coin.duration}s`,
+              animationDelay: `${coin.delay}s`
+            }}
+          >
+            💰
+          </div>
+        ))}
       </div>
 
       {/* Main content */}
