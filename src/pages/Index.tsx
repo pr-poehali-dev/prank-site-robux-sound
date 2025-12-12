@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
+import confetti from 'canvas-confetti';
 
 const Index = () => {
   const [clicks, setClicks] = useState(0);
   const [robux, setRobux] = useState(0);
   const [coins, setCoins] = useState<Array<{ id: number; left: string; duration: number; delay: number }>>([]);
+  const [celebrationShown, setCelebrationShown] = useState(false);
 
   useEffect(() => {
     const coinElements = Array.from({ length: 15 }, (_, i) => ({
@@ -22,8 +24,38 @@ const Index = () => {
     audio.volume = 0.5;
     audio.play();
     const earned = Math.floor(Math.random() * 50) + 10;
-    setClicks(clicks + 1);
+    const newClicks = clicks + 1;
+    setClicks(newClicks);
     setRobux(robux + earned);
+    
+    if (newClicks === 10000 && !celebrationShown) {
+      setCelebrationShown(true);
+      const duration = 5000;
+      const end = Date.now() + duration;
+      
+      const colors = ['#a855f7', '#ec4899', '#06b6d4'];
+      
+      (function frame() {
+        confetti({
+          particleCount: 7,
+          angle: 60,
+          spread: 55,
+          origin: { x: 0 },
+          colors: colors
+        });
+        confetti({
+          particleCount: 7,
+          angle: 120,
+          spread: 55,
+          origin: { x: 1 },
+          colors: colors
+        });
+        
+        if (Date.now() < end) {
+          requestAnimationFrame(frame);
+        }
+      }());
+    }
   };
 
   const handleWithdraw = () => {
