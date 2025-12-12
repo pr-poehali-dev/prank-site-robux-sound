@@ -12,6 +12,12 @@ const Index = () => {
     setClicks(clicks + 1);
   };
 
+  const handleWithdraw = () => {
+    const audio = new Audio('https://www.myinstants.com/media/sounds/evil-laugh.mp3');
+    audio.volume = 0.6;
+    audio.play();
+  };
+
   return (
     <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-background via-purple-900/20 to-background">
       {/* Animated background elements */}
