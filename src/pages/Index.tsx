@@ -110,7 +110,7 @@ const Index = () => {
               className="text-xl md:text-3xl font-black px-12 py-8 rounded-3xl bg-gradient-to-r from-accent via-primary to-accent bg-[length:200%_100%] hover:bg-right transition-all duration-500 shadow-2xl hover:shadow-accent/50 hover:scale-110 active:scale-95 border-4 border-secondary/50"
             >
               <Icon name="Wallet" className="mr-4" size={36} />
-              ВЫВЕСТИ РОБУКСЫ
+              ВЫВЕСТИ РОБУКСЫ (ТУТОРИАЛ)
               <Icon name="TrendingUp" className="ml-4" size={36} />
             </Button>
           </div>
