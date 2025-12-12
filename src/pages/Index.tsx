@@ -69,8 +69,8 @@ const Index = () => {
         </div>
 
         {/* Counter */}
-        {clicks > 0 && (
-          <div className="mb-8 animate-in fade-in zoom-in duration-300 space-y-4">
+        {robux > 0 && (
+          <div className="mb-8 animate-in fade-in zoom-in duration-300">
             <div className="bg-card/50 backdrop-blur-sm border-2 border-accent/70 rounded-2xl px-8 py-6">
               <p className="text-4xl md:text-5xl font-black text-center">
                 <Icon name="Coins" className="inline-block mr-3" size={40} />
@@ -78,11 +78,6 @@ const Index = () => {
                 <span className="text-2xl ml-2">R$</span>
               </p>
               <p className="text-sm text-muted-foreground text-center mt-2">Твои робуксы</p>
-            </div>
-            <div className="bg-card/30 backdrop-blur-sm border-2 border-primary/40 rounded-xl px-6 py-3">
-              <p className="text-lg text-center text-muted-foreground">
-                Кликов: <span className="text-primary font-bold">{clicks}</span>
-              </p>
             </div>
           </div>
         )}
@@ -104,7 +99,7 @@ const Index = () => {
         </div>
 
         {/* Withdraw button */}
-        {clicks >= 10000 && (
+        {robux >= 100000 && (
           <div className="mt-8 animate-in fade-in zoom-in duration-500">
             <Button
               onClick={handleWithdraw}
@@ -118,10 +113,10 @@ const Index = () => {
           </div>
         )}
 
-        {clicks < 10000 && clicks > 0 && (
+        {robux < 100000 && robux > 0 && (
           <div className="mt-8 animate-in fade-in duration-300">
             <p className="text-lg text-muted-foreground text-center">
-              Ещё {10000 - clicks} кликов до вывода! 🎯
+              Ещё {(100000 - robux).toLocaleString()} R$ до вывода! 🎯
             </p>
           </div>
         )}
