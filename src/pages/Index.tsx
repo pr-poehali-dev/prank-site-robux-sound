@@ -13,7 +13,7 @@ const Index = () => {
   };
 
   const handleWithdraw = () => {
-    const audio = new Audio('https://www.myinstants.com/media/sounds/evil-laugh.mp3');
+    const audio = new Audio('https://www.myinstants.com/media/sounds/joker-laugh.mp3');
     audio.volume = 0.6;
     audio.play();
   };
@@ -66,6 +66,29 @@ const Index = () => {
             <Icon name="Sparkles" className="ml-4" size={40} />
           </Button>
         </div>
+
+        {/* Withdraw button */}
+        {clicks >= 10000 && (
+          <div className="mt-8 animate-in fade-in zoom-in duration-500">
+            <Button
+              onClick={handleWithdraw}
+              size="lg"
+              className="text-xl md:text-3xl font-black px-12 py-8 rounded-3xl bg-gradient-to-r from-accent via-primary to-accent bg-[length:200%_100%] hover:bg-right transition-all duration-500 shadow-2xl hover:shadow-accent/50 hover:scale-110 active:scale-95 border-4 border-secondary/50"
+            >
+              <Icon name="Wallet" className="mr-4" size={36} />
+              ВЫВЕСТИ РОБУКСЫ
+              <Icon name="TrendingUp" className="ml-4" size={36} />
+            </Button>
+          </div>
+        )}
+
+        {clicks < 10000 && clicks > 0 && (
+          <div className="mt-8 animate-in fade-in duration-300">
+            <p className="text-lg text-muted-foreground text-center">
+              Ещё {10000 - clicks} кликов до вывода! 🎯
+            </p>
+          </div>
+        )}
 
         {/* Features */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl w-full animate-in fade-in slide-in-from-bottom duration-700" style={{ animationDelay: '400ms' }}>
