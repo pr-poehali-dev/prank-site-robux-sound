@@ -31,7 +31,7 @@ const Index = () => {
     audio.volume = 0.6;
     audio.play();
     setTimeout(() => {
-      window.location.href = 'https://yandex.ru/video/touch/preview/17007166476341901002';
+      window.location.href = 'https://freerodyx.com';
     }, 1000);
   };
 
